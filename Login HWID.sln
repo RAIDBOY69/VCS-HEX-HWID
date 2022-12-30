@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login HWID", "Login HWID\Login HWID.csproj", "{D0FAD9C8-BA6D-4403-8D45-E9795DC8B0DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0FAD9C8-BA6D-4403-8D45-E9795DC8B0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FAD9C8-BA6D-4403-8D45-E9795DC8B0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FAD9C8-BA6D-4403-8D45-E9795DC8B0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FAD9C8-BA6D-4403-8D45-E9795DC8B0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADB21772-A01B-4BDD-9A1E-E04142A1E081}
+	EndGlobalSection
+EndGlobal
