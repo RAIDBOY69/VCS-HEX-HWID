@@ -91,9 +91,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(104, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "VCS-HEX";
+            this.label1.Text = "VCSHX";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
