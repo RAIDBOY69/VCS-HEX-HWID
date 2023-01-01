@@ -85,7 +85,7 @@ namespace Login_HWID
             }
 
             //VERSION
-            Console.WriteLine("V0.2");
+            Console.WriteLine("V1.0");
 
             string usernamer;
             string passwordr;
