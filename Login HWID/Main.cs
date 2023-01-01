@@ -86,7 +86,6 @@ namespace Login_HWID
 
             string usernamer;
             string passwordr;
-            // identify the vocabsize username box  ( test account "User":"1001042920","Pass":"QJRAAN")
             Console.WriteLine("\n\n Enter enconcept username: ");
             usernamer = Console.ReadLine();
             Console.WriteLine("\n\n Enter enconcept password: ");
@@ -103,21 +102,17 @@ namespace Login_HWID
             _ = wait.Until(condition: driver =>
             {
                 return driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img"));
-                ///return driver.FindElement(By.XPath("/html/body/div[2]/div[2]/div/div[1]/div/div/div/a/img"));
             });
 
 
-            //go into test  old (/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img) new /html/body/div[2]/div/div[1]/div/div[1]/div/div/div[49]/div/div/div[3]/div[3]/div[1]/a
 
             driver1.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img")).Click();
-            //Thread.Sleep(150);
-            //get input from user
+
             string assignmentnum;
             Console.WriteLine("\n\n Enter Assignment No. ");
             assignmentnum = Console.ReadLine();
             var assignmentnum2 = String.Format("/html/body/div[2]/table/tbody/tr[{0}]/td[7]/a[2]", assignmentnum);
-            /// new /html/body/div[2]/div/div[2]/div/div[3]/div/div[{0}]/div/div/div[2]/div/div[1]/div[2]/div[2]/div[1]/a
-            /// old /html/body/div[2]/table/tbody/tr[{0}]/td[7]/a[2]
+
             IWebElement ele5 = driver1.FindElement(By.XPath(assignmentnum2));
             ele5.Click();
 
@@ -142,8 +137,7 @@ namespace Login_HWID
                 driver1.FindElement(By.XPath(txtbox)).SendKeys(words);
 
             }
-            //press save
-            //*[@id="btn_save"]
+            ///SAVE
             IWebElement ele10 = driver1.FindElement(By.XPath("//*[@id=\"btn_save\"]"));
             ele10.Click();
 
