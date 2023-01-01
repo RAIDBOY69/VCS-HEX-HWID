@@ -84,6 +84,9 @@ namespace Login_HWID
                 }
             }
 
+            //VERSION
+            Console.Writeline('V0.2');
+
             string usernamer;
             string passwordr;
             Console.WriteLine("\n\n Enter enconcept username: ");
