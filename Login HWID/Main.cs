@@ -89,9 +89,9 @@ namespace Login_HWID
 
             string usernamer;
             string passwordr;
-            Console.WriteLine("\n\n Enter enconcept username: ");
+            Console.WriteLine("\n \n Enter enconcept username: ");
             usernamer = Console.ReadLine();
-            Console.WriteLine("\n\n Enter enconcept password: ");
+            Console.WriteLine("\n \n Enter enconcept password: ");
             passwordr = Console.ReadLine();
             IWebElement ele = driver1.FindElement(By.Id("txt_email"));
             ele.SendKeys(usernamer);
@@ -112,7 +112,7 @@ namespace Login_HWID
             driver1.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img")).Click();
 
             string assignmentnum;
-            Console.WriteLine("\n\n Enter Assignment No. ");
+            Console.WriteLine("\n Enter Assignment No. ");
             assignmentnum = Console.ReadLine();
             var assignmentnum2 = String.Format("/html/body/div[2]/table/tbody/tr[{0}]/td[7]/a[2]", assignmentnum);
 
@@ -127,7 +127,7 @@ namespace Login_HWID
             //word amount
 
             int word_amount = Convert.ToInt16(driver1.FindElement(By.XPath("/html/body/section/div[1]/div/div/div[1]/div[6]/span")).GetAttribute("innerHTML"));
-            Console.WriteLine("Currently doing " + word_amount + " words in this assignment");
+            Console.WriteLine("\n Currently doing " + word_amount + " words in this assignment");
 
 
 
@@ -144,9 +144,9 @@ namespace Login_HWID
             IWebElement ele10 = driver1.FindElement(By.XPath("//*[@id=\"btn_save\"]"));
             ele10.Click();
 
-            Console.WriteLine("Your Assignment is done!");
+            Console.WriteLine("\n \n Your Assignment is done!");
             Thread.Sleep(2500);
-            Console.Write("Now Closing WebDriver.");
+            Console.Write("\n \n Now Closing WebDriver.");
             Console.Write(".");
             Thread.Sleep(1000);
             Console.Write(".");
