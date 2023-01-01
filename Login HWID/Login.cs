@@ -346,5 +346,15 @@ namespace Login_HWID
         {
 
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.gg/NNhzW5X94m");
+        }
     }
 }

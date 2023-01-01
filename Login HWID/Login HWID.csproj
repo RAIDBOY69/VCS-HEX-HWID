@@ -263,6 +263,7 @@
     <Content Include="cyber-attack.ico" />
     <Content Include="packageIcon.ico" />
     <None Include="Resources\3069758_circle_discord_gaming_messenger_round icon_icon %281%29.png" />
+    <None Include="Resources\cyber-attack.png" />
     <Content Include="vcshexlogo-removebg-preview %281%29.ico" />
     <Content Include="vcshexlogo-removebg-preview.ico" />
   </ItemGroup>
