@@ -38,11 +38,13 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginBTN
             // 
+            this.LoginBTN.BorderRadius = 10;
             this.LoginBTN.CheckedState.Parent = this.LoginBTN;
             this.LoginBTN.CustomImages.Parent = this.LoginBTN;
             this.LoginBTN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
@@ -62,6 +64,7 @@
             // 
             // Username
             // 
+            this.Username.BorderRadius = 10;
             this.Username.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Username.DefaultText = "Username";
             this.Username.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -102,6 +105,7 @@
             // 
             // Password
             // 
+            this.Password.BorderRadius = 10;
             this.Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Password.DefaultText = "Password";
             this.Password.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -154,7 +158,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Login_HWID.Properties.Resources._3069758_circle_discord_gaming_messenger_round_icon_icon__1_;
+            this.pictureBox1.Image = global::Login_HWID.Properties.Resources.instagram;
             this.pictureBox1.Location = new System.Drawing.Point(97, 127);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 38);
@@ -163,11 +167,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(450, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "V1.0";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 210);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2ControlBox1);
@@ -179,7 +195,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VCSCheat";
+            this.Text = "VCSHX";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -197,6 +213,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

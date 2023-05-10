@@ -25,11 +25,13 @@ namespace Login_HWID
         public static Point newpoint = new Point();
         public static int x;
         public static int y;
+        private Point offset;
 
 
         public Login()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         #region "Button Login"
@@ -54,24 +56,24 @@ namespace Login_HWID
                     }
                     else if (premiumState == "BANNED") //<== If detect player is BANNED
                     {
-                        MessageBox.Show("You are banned.", "VCS-Hex", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("You are banned.", "VCSHX", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LoginBTN.Text = "Login"; //<== Reset Text Btn
                     }
                     else if (premiumState == "FREE") //<== If detect player is FREE
                     {
-                        MessageBox.Show("You are a Free Member, you need purchase it", "VCS-Hex", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("You are a Free Member, you need purchase it", "VCSHX", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LoginBTN.Text = "Login"; //<== Reset Text Btn
                     }
                     else
                     {
-                        MessageBox.Show("??????", "VCS-Hex", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("??????", "VCSHX", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Application.Exit();
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("API is offline, contact Dev or wait.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("API is offline, contact Admin or wait.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoginBTN.Text = "Login"; //<== Reset Text Btn
             }
         }
@@ -290,7 +292,7 @@ namespace Login_HWID
         {
             //if all is good you can access to Main Form !
 
-            MessageBox.Show("Welcome " + Username.Text + " you can use vocabsize cheat !!");
+            MessageBox.Show("Press OK to proceed");
             Main ALLOWED = new Main();
             this.Hide();
             ALLOWED.Show();
@@ -301,25 +303,21 @@ namespace Login_HWID
         #endregion
 
 
-
-
-
-
         //For move application
         #region "System Move Title Panel"
+
         private void xMouseDown(object sender, MouseEventArgs e)
         {
-            x = Control.MousePosition.X - base.Location.X;
-            y = Control.MousePosition.Y - base.Location.Y;
+            offset = e.Location;
         }
         private void xMouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                newpoint = Control.MousePosition;
-                newpoint.X -= x;
-                newpoint.Y -= y;
-                base.Location = newpoint;
+                Point newLocation = this.Location;
+                newLocation.X += e.X - offset.X;
+                newLocation.Y += e.Y - offset.Y;
+                this.Location = newLocation;
             }
         }
         #endregion 
@@ -339,7 +337,7 @@ namespace Login_HWID
 
         private void label1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discord.gg/NNhzW5X94m");
+            System.Diagnostics.Process.Start("https://www.instagram.com/ezvocabsize/");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -354,7 +352,12 @@ namespace Login_HWID
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discord.gg/NNhzW5X94m");
+            System.Diagnostics.Process.Start("https://www.instagram.com/ezvocabsize/");
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

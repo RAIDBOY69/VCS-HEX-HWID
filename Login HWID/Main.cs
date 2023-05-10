@@ -12,6 +12,12 @@ using System.Windows.Forms;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Microsoft.Win32;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 
 
@@ -23,42 +29,7 @@ namespace Login_HWID
         {
             InitializeComponent();
         }
-
-        [DllImport("kernel32")]
-        private static extern bool AllocConsole();
-        private void Main_Load(object sender, EventArgs e)
-        {
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService();
-            service.EnableVerboseLogging = false;
-            service.SuppressInitialDiagnosticInformation = true;
-            service.HideCommandPromptWindow = true;
-
-            ChromeOptions options = new ChromeOptions();
-
-            options.PageLoadStrategy = PageLoadStrategy.Normal;
-
-
-
-            options.AddArgument("--disable-logging");
-            options.AddArgument("--disable-dev-shm-usage");
-            options.AddArgument("--log-level=3");
-            options.AddArgument("--output=/dev/null");
-
-
-
-            IWebDriver driver2 = new ChromeDriver(service, options);
-            IWebDriver driver1 = driver2;
-            // navigate to URL  
-
-            driver2.Navigate().GoToUrl("https://vocabsize-legacy.xeersoft.co.th/");
-
-
-            AllocConsole();
-            string title = GenerateRandomString();
-            Console.Title = title;
-
-
-            static string GenerateRandomString()
+        static string GenerateRandomString()
             {
                 const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                 Random rnd = new Random();
@@ -68,7 +39,50 @@ namespace Login_HWID
                     chars[i] = alphabet[rnd.Next(alphabet.Length)];
                 }
                 return new string(chars);
+
             }
+
+        [DllImport("kernel32")]
+        private static extern bool AllocConsole();
+
+        private IWebDriver _webDriver;
+
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+            #region Console
+            AllocConsole();
+            string title = GenerateRandomString();
+            Console.Title = title;
+            Console.WriteLine("[+]Initializing Driver");
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            _webDriver = new ChromeDriver();
+            Thread.Sleep(3000);
+            #endregion
+
+
+            #region ChromeDriver Settings
+            //ChromeDriverService service = ChromeDriverService.CreateDefaultService();
+            //service.EnableVerboseLogging = false;
+            //service.SuppressInitialDiagnosticInformation = true;
+            //service.HideCommandPromptWindow = true;
+
+            //ChromeOptions options = new ChromeOptions();
+
+            //options.PageLoadStrategy = PageLoadStrategy.Normal;
+
+
+
+            //options.AddArgument("--disable-logging");
+            //options.AddArgument("--disable-dev-shm-usage");
+            //options.AddArgument("--log-level=3");
+            //options.AddArgument("--output=/dev/null");
+            #endregion
+            #region ChromeDriver Launch Check
+            IWebDriver driver2 = _webDriver;
+            IWebDriver driver1 = driver2;
+            driver2.Navigate().GoToUrl("https://vocabsize-legacy.xeersoft.co.th/");
 
             IWebElement WaitUntilElementExists(By elementLocator, int timeout = 10)
             {
@@ -85,21 +99,26 @@ namespace Login_HWID
             }
 
             //VERSION
-            Console.WriteLine("V1.0");
+            Console.Write(".");
+            Console.Clear();
+            Console.WriteLine("OK!");
+            Thread.Sleep(1000);
+            Console.Clear();
+            #endregion
+            #region VCSBOT
+
 
             string usernamer;
             string passwordr;
-            Console.WriteLine("\n \n Enter enconcept username: ");
+            Console.WriteLine("\n \nEnter enconcept username: ");
             usernamer = Console.ReadLine();
-            Console.WriteLine("\n \n Enter enconcept password: ");
+            Console.Clear();
+            Console.WriteLine("\n \nEnter enconcept password: ");
             passwordr = Console.ReadLine();
-            IWebElement ele = driver1.FindElement(By.Id("txt_email"));
-            ele.SendKeys(usernamer);
-            IWebElement ele2 = driver1.FindElement(By.Id("txt_password"));
-            ele2.SendKeys(passwordr);
-            IWebElement ele3 = driver1.FindElement(By.Id("btn_submit"));
-            ele3.Click();
-            ///Thread.Sleep(1000);
+            driver1.FindElement(By.Id("txt_email")).SendKeys(usernamer);
+            driver1.FindElement(By.Id("txt_password")).SendKeys(passwordr);
+            driver1.FindElement(By.Id("btn_submit")).Click();
+
 
             WebDriverWait wait = new WebDriverWait(driver1, TimeSpan.FromSeconds(20));
             _ = wait.Until(condition: driver =>
@@ -107,60 +126,70 @@ namespace Login_HWID
                 return driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img"));
             });
 
-
-
             driver1.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div/div[1]/div/a/img")).Click();
 
             string assignmentnum;
-            Console.WriteLine("\n Enter Assignment No. ");
+            Console.Clear();
+            Console.WriteLine("\nEnter TEST No.");
             assignmentnum = Console.ReadLine();
-            var assignmentnum2 = String.Format("/html/body/div[2]/table/tbody/tr[{0}]/td[7]/a[2]", assignmentnum);
+            var assignmentnum2 = String.Format("/html/body/div[2]/table/tbody/tr[{0}]/td[7]", assignmentnum); ///3 row
+                                                                                                              ///html/body/div[2]/table/tbody/tr[{0}]/td[7]
+            //var practicenum = String.Format("/html/body/div[2]/table/tbody/tr[{0}]/td[7]/a[1]", assignmentnum);
 
-            IWebElement ele5 = driver1.FindElement(By.XPath(assignmentnum2));
-            ele5.Click();
 
+            string xpath = assignmentnum2 + "//a[contains(text(), 'Vocab Test')]";
+            driver1.FindElement(By.XPath(xpath)).Click();
+
+            //*[@id="result_list"]/table/tbody/tr[1]/td[7]/a[2]
 
 
             driver1.FindElement(By.Id("btn_skip")).Click();
             driver1.FindElement(By.Id("button1")).Click();
 
             //word amount
-
+            Console.Clear();
             int word_amount = Convert.ToInt16(driver1.FindElement(By.XPath("/html/body/section/div[1]/div/div/div[1]/div[6]/span")).GetAttribute("innerHTML"));
-            Console.WriteLine("\n Currently doing " + word_amount + " words in this assignment");
+            Console.WriteLine("\n[*]Total " + word_amount + " Words");
 
 
 
             for (int i = 0; i < word_amount; i++)
             {
                 int amount = i;
-                var wd = String.Format("/html/body/section/div[4]/table/tbody/tr[{0}]/td[3]/span[1]", amount + 1);
+                var wd = String.Format("/html/body/section/div[4]/table/tbody/tr[{0}]/td[3]/span[1]", amount + 1); // 2 row
                 var words = (driver1.FindElement(By.XPath(wd)).GetAttribute("innerHTML"));
                 var txtbox = String.Format("/html/body/section/div[4]/table/tbody/tr[{0}]/td[4]/div/input", amount + 1);
                 driver1.FindElement(By.XPath(txtbox)).SendKeys(words);
-
             }
             ///SAVE
             IWebElement ele10 = driver1.FindElement(By.XPath("//*[@id=\"btn_save\"]"));
             ele10.Click();
 
-            Console.WriteLine("\n \n Your Assignment is done!");
-            Thread.Sleep(2500);
-            Console.Write("\n \n Now Closing WebDriver.");
-            Console.Write(".");
-            Thread.Sleep(1000);
-            Console.Write(".");
-            Thread.Sleep(1000);
-            Console.Write(".");
-            Thread.Sleep(1000);
-            Console.Write(".");
-            Thread.Sleep(2500);
-
+            Console.WriteLine("[+]Assignment Complete");
+            Thread.Sleep(1500);
+            Console.WriteLine("[+]Closing WebDriver.");
+            Thread.Sleep(1500);
             //close the browser
-
-            Console.WriteLine("terminating program..");
+            _webDriver.Quit();
+            Console.WriteLine("[+]Terminating Program..");
             Thread.Sleep(1500);
             Environment.Exit(0);
+            #endregion
+        }
+
+        private void Username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
