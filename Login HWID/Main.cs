@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Microsoft.Win32;
-using System.IO;
-using System.IO.Compression;
-using System.Net;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
