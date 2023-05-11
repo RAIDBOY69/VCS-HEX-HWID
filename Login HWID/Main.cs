@@ -60,7 +60,7 @@ namespace Login_HWID
                 service.SuppressInitialDiagnosticInformation = true;
                 service.HideCommandPromptWindow = true;
                 ChromeOptions options = new ChromeOptions();
-                //options.PageLoadStrategy = PageLoadStrategy.Normal;
+                options.PageLoadStrategy = PageLoadStrategy.Normal;
                 options.AddArgument("--disable-logging");
                 options.AddArgument("--disable-dev-shm-usage");
                 options.AddArgument("--log-level=3");
@@ -167,7 +167,6 @@ namespace Login_HWID
             }
             catch(Exception ex)
             {
-                Console.Clear();
                 Console.WriteLine("[X]Error: " + ex.Message + " Please contact ADMIN @ezvocabsize.");
             }
             }

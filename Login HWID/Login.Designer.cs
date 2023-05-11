@@ -129,6 +129,7 @@
             this.Password.Size = new System.Drawing.Size(204, 28);
             this.Password.TabIndex = 4;
             this.Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Password.UseSystemPasswordChar = true;
             // 
             // guna2ControlBox1
             // 

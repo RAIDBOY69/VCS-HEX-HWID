@@ -1,0 +1,2 @@
+cd /d "C:\Users\Team\Documents\VCS\vcshexlatest\Csharp-login-with-HWID-API-master\Application Login\Login HWID\Login HWID" &msbuild "Login HWID.csproj" /t:sdvViewer /p:configuration="Debug" /p:platform="Any CPU" /p:SolutionDir="C:\Users\Team\Documents\VCS\vcshexlatest\Csharp-login-with-HWID-API-master\Application Login\Login HWID" 
+exit %errorlevel% 
