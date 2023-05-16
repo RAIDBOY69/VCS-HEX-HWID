@@ -41,7 +41,7 @@ namespace Login_HWID
             this.LoginBTN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.LoginBTN.ForeColor = System.Drawing.Color.White;
             this.LoginBTN.HoverState.Parent = this.LoginBTN;
-            this.LoginBTN.Location = new System.Drawing.Point(-6, -4);
+            this.LoginBTN.Location = new System.Drawing.Point(-6, -3);
             this.LoginBTN.Name = "LoginBTN";
             this.LoginBTN.ShadowDecoration.Parent = this.LoginBTN;
             this.LoginBTN.Size = new System.Drawing.Size(402, 195);
