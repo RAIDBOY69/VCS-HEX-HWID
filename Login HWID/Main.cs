@@ -47,8 +47,24 @@ namespace Login_HWID
             Console.WriteLine("[+]Initializing Driver");
             try
             {
-                new DriverManager().SetUpDriver(new ChromeConfig());
-                _webDriver = new ChromeDriver();
+                try
+                {
+                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    _webDriver = new ChromeDriver();
+                }
+                catch (Exception ex)
+                {
+                    string message = "Delete current driver and launch program again";
+                    string ttt = "Driver Not Found";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(message, ttt, buttons);
+                    if (buttons == MessageBoxButtons.OK)
+                    {
+                        Application.Exit();
+                    }
+
+                }
+
                 Thread.Sleep(3000);
                 #endregion
 
@@ -166,7 +182,8 @@ namespace Login_HWID
             }
             catch(Exception ex)
             {
-                Console.WriteLine("[X]Error: " + ex.Message + " Please contact ADMIN @ezvocabsize.");
+                Console.WriteLine("[X]Error: " + ex.Message);
+                Console.WriteLine("Please contact ADMIN @ezvocabsize.");
             }
             }
 

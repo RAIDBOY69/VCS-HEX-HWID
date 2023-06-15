@@ -297,6 +297,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cyber-attack-red.ico" />
     <Content Include="cyber-attack.ico" />
     <Content Include="packageIcon.ico" />
     <None Include="Resources\3069758_circle_discord_gaming_messenger_round icon_icon %281%29.png" />
