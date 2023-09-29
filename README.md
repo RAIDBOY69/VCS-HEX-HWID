@@ -1,6 +1,7 @@
-C# Application Readme: Premium User Login and Selenium Automation
-Introduction
-This C# application is designed to provide a user-friendly login interface for users. It integrates with an external API to determine if a user is a premium member or not. If the user is premium, the application proceeds to automate tasks using Selenium, specifically logging in to a website. This README provides an overview of the application's functionality, setup instructions, and important details for users and developers.
+# C# Application Readme: Premium User Login and Selenium Automation
+#### Video Demo:  [Video](https://youtu.be/PzHw2cPqJsQ)
+ 
+#### Description: This C# application is designed to provide a user-friendly login interface for users. It integrates with an external API to determine if a user is a premium member or not. If the user is premium, the application proceeds to automate tasks using Selenium, specifically logging in to a website. This README provides an overview of the application's functionality, setup instructions, and important details for users and developers.
 
 Table of Contents
 Features
